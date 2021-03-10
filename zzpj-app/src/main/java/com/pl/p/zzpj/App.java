@@ -1,16 +1,34 @@
 package com.pl.p.zzpj;
 
 
-public class App 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello mvn!" );
-        User user = new User();
-        user.setAge(10);
-        user.setName("John");
+        System.out.println( "Maven profiles" );
+        loadProperties();
+    }
 
-        System.out.println(user.getAge());
-        System.out.println(user.getName());
+    public static Properties loadProperties() {
+        App app = new App();
+        Properties prop = app.loadPropertiesFile("config.properties");
+        prop.forEach((k, v) -> System.out.println(k + ":" + v));
+        return prop;
+    }
+
+    public Properties loadPropertiesFile(String filePath) {
+
+        Properties prop = new Properties();
+
+        try (InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(filePath)) {
+            prop.load(resourceAsStream);
+        } catch (IOException e) {
+            System.err.println("Unable to load properties file : " + filePath);
+        }
+        return prop;
     }
 }
