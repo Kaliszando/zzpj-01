@@ -13,6 +13,7 @@ public class App
         person.setName("John");
         person.setSurname("Kowalsky");
         person.setAge(47);
+        person.setEmail(person.getName()+person.getSurname()+person.getAge()+"@mail.com");
 
         System.out.println(person);
     }
