@@ -26,10 +26,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.18</version>
-      <scope>provided</scope>
+      <groupId>com.pl.p.zzpj.lib</groupId>
+      <artifactId>zzpj-lib</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 
